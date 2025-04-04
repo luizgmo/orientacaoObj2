@@ -1,4 +1,4 @@
-package revisao;
+package revisao.arqobj1;
 
 public abstract class MaterialBibliografico implements Emprestavel{
     
