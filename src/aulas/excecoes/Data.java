@@ -11,7 +11,7 @@ public class Data {
         if (dia >= 1 && dia <= 31){
             this.dia = dia;
         } else{
-            throw new RuntimeException("O dia deve estar entre 1 e 31.");
+            throw new ExcecaoNaoVerificada("O dia deve estar entre 1 e 31.");  //RuntimeException("O dia deve estar entre 1 e 31.");
         }
     }
 
@@ -19,11 +19,11 @@ public class Data {
         return mes;
     }
 
-    public void setMes(int mes)  throws Exception{
+    public void setMes(int mes) throws Exception{
         if (mes >= 1 && mes <= 12){
             this.mes = mes;
         } else{
-            throw new Exception("O mês deve estar entre 1 e 12.");
+            throw new ExcecaoVerificada("O mês deve estar entre 1 e 12."); //Exception("O mês deve estar entre 1 e 12.");
         }
     }
 
@@ -31,8 +31,12 @@ public class Data {
         return ano;
     }
 
-    public void setAno(int ano) {
-        this.ano = ano;
+    public void setAno(int ano){
+        if (ano >= 0){
+            this.ano = ano;
+        } else{
+            throw new ExcecaoNaoVerificada("O ano precisa ser maior ou igual a 0."); //Exception("O ano precisa ser maior ou igual a 0.");
+        }
     }
     
     

@@ -7,9 +7,12 @@ public class Exemplo5 {
         hoje.setDia(4);
         
         try{
-            hoje.setMes(0);
-        } catch(Exception ex){
-            System.out.println(ex.getMessage());
+            hoje.setMes(4);
+            hoje.setAno(-1);
+        } catch(NullPointerException ex1){
+            System.out.println(ex1.getMessage());
+        } catch(Exception ex2){
+            System.out.println(ex2.getMessage());
         }
     }
 }
