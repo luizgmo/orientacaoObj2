@@ -3,18 +3,31 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/arquivos/Exemplo2.java</file>
-            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/arquivos/Exemplo5.java</file>
-            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/excecoes/Data.java</file>
             <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/excecoes/ExcecaoVerificada.java</file>
-            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/excecoes/ExcecaoNaoVerificada.java</file>
-            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/excecoes/Exemplo5.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/threads/Escrever.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/threads/prodcon/Consumidor.java</file>
             <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/arquivos/Exemplo1.java</file>
             <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/excecoes/Exemplo6.java</file>
-            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/regex/Main.java</file>
-            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/arquivos/Exemplo3.java</file>
             <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/arquivos/Exemplo4.java</file>
             <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/arquivos/Pessoa.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/threads/Fila.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/xml/EscreverExemplo1.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/arquivos/Exemplo2.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/arquivos/Exemplo5.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/threads/prodcon/Main.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/excecoes/ExcecaoNaoVerificada.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/excecoes/Exemplo5.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/threads/Imprimir.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/threads/Main2.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/xml/EscreverExemplo2.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/threads/prodcon/Produtor.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/regex/Main.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/threads/prodcon/Buffer.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/xml/LerExemplo1.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/excecoes/Data.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/arquivos/Exemplo6.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/arquivos/Exemplo3.java</file>
+            <file>file:/home/aluno/Área%20de%20trabalho/orientacaoObj2/src/aulas/threads/Main1.java</file>
         </group>
     </open-files>
 </project-private>
