@@ -1,4 +1,4 @@
-package aulas.rede.jogo;
+package aulas.rede.jogodavelha;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -23,10 +23,29 @@ public class ServidorJogoDaVelha {
         entradaJogadorX = new ObjectOutputStream( jogadorX.getOutputStream() );
         entradaJogadorX.flush();        
         entradaJogadorX.writeObject("X;true");
+        entradaJogadorX.flush();
         
         ObjectInputStream saidaJogadorX;
         saidaJogadorX = new ObjectInputStream( jogadorX.getInputStream() );
         
+        Socket jogadorO;        
+        System.out.println( "Esperando por Conexão (Jogador O)." );
+        jogadorO =  servidor.accept();
+        System.out.println( "Conexão Recebida: " + jogadorO.toString() + ":" + jogadorO.getPort() + "\n" );
+        
+        ObjectOutputStream entradaJogadorO;
+        entradaJogadorO = new ObjectOutputStream( jogadorO.getOutputStream() );
+        entradaJogadorO.flush();        
+        entradaJogadorO.writeObject("O;false");
+        entradaJogadorO.flush();
+        
+        ObjectInputStream saidaJogadorO;
+        saidaJogadorO = new ObjectInputStream( jogadorO.getInputStream() );
+        
+        Thread thread1 = new Thread(new GerenciadorDeJogadas(saidaJogadorX, entradaJogadorO));
+        Thread thread2 = new Thread(new GerenciadorDeJogadas(saidaJogadorO, entradaJogadorX));
                         
+        thread1.start();
+        thread2.start();
     }
 }

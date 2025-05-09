@@ -1,4 +1,4 @@
-package aulas.rede.jogo;
+package aulas.rede.jogodavelha;
 
 public class ClienteJogoDaVelha {
     public static void main(String[] args) throws Exception {

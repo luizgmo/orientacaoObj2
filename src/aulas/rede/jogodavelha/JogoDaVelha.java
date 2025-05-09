@@ -1,4 +1,4 @@
-package aulas.rede.jogo;
+package aulas.rede.jogodavelha;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -15,6 +15,8 @@ public class JogoDaVelha {
     
     private String marcador;
     
+    private Sons sons;
+    
     private Socket servidorConexao;
     private ObjectInputStream servidorEntrada;
     private ObjectOutputStream servidorSaida;
@@ -27,6 +29,8 @@ public class JogoDaVelha {
         
         tabuleiro = new String[3][3];
         
+        sons = new Sons("./sounds/comecar.wav", "./sounds/mover.wav", "./sounds/errar.wav", "./sounds/ganhar.wav", "./sounds/perder.wav");
+        
         conectar();
         
         iniciar();
@@ -37,7 +41,15 @@ public class JogoDaVelha {
     
     private void conectar() throws Exception {
         
-        String mensagem = "X;true"; // receber essa mensagem do servidor
+        servidorConexao = new Socket( InetAddress.getByName( Config.getIp() ), Config.getPorta() );
+        
+        servidorSaida = new ObjectOutputStream( servidorConexao.getOutputStream() );
+        servidorSaida.flush();
+        
+        servidorEntrada = new ObjectInputStream( servidorConexao.getInputStream() );
+                
+        String mensagem = (String) servidorEntrada.readObject();
+        
         String[] info = mensagem.split(";");
         setMarcador( info[0] );
         
@@ -49,7 +61,9 @@ public class JogoDaVelha {
         
     }
     
-    public void iniciar() {
+    public void iniciar() throws Exception {
+        
+        sons.comecar();
         
         for(int l = 0; l < 3; l++) {
             for(int c = 0; c < 3; c++) {
@@ -73,7 +87,9 @@ public class JogoDaVelha {
                 System.out.println( toString() );
                 System.out.println("Espere sua vez.");
                 
-                mensagem = "1;1;O"; // receber essa mensagem info do servidor
+                mensagem = (String) servidorEntrada.readObject(); // "1;1;O"; // receber essa mensagem info do servidor
+                
+                sons.mover();
                 
                 String[] info = mensagem.split(";");
                 
@@ -104,19 +120,24 @@ public class JogoDaVelha {
                 
                 if( marcado == false ) {
                     System.out.println("Linha e/ou Coluna Inválido(s)!\n");
+                    sons.errar();
                 }                
                 
             }
             
             mensagem = linha + ";" + coluna + ";" + getMarcador();
-            System.out.println(mensagem); // enviar essa mensagem para o servidor
+            servidorSaida.writeObject(mensagem); // enviar essa mensagem para o servidor
+            
+            sons.mover();
+            
+            setSuaVez(false);
             
             checarTermino();
             
         }
     }
     
-    private void checarTermino() {
+    private void checarTermino() throws Exception {
         
         String marcadorGanhador = ganhador();
             if( marcadorGanhador != null ) {
@@ -127,7 +148,9 @@ public class JogoDaVelha {
                 
                 if( marcadorGanhador.equals( getMarcador() ) ) {
                     System.out.print("Você Ganhou! :)\n");
-                } else {                    
+                    sons.ganhar();
+                } else {
+                    sons.perder();
                     if( marcadorGanhador.equals("empate") ) {
                         System.out.print("Você Empatou! :|\n");
                     } else {
@@ -143,7 +166,7 @@ public class JogoDaVelha {
         
     }
     
-    private void checarReinicio() {
+    private void checarReinicio() throws Exception {
         
         char resposta = ' ';        
         while( resposta != 'S' &&
@@ -183,6 +206,12 @@ public class JogoDaVelha {
                 tabuleiro[0][0].equals( tabuleiro[1][1] ) == true && 
                 tabuleiro[1][1].equals( tabuleiro[2][2] ) == true ) {
             return tabuleiro[0][0];
+        }
+        
+        if( tabuleiro[0][2].equals("  ") == false &&
+                tabuleiro[0][2].equals( tabuleiro[1][1] ) == true && 
+                tabuleiro[1][1].equals( tabuleiro[2][0] ) == true ) {
+            return tabuleiro[0][2];
         }
         
         for( int i = 0; i < 3; i++ ) {
